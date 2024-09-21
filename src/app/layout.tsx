@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ApolloWrapper } from "@/lib/apolloClient";
+import { CookiesProvider } from 'next-client-cookies/server';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased`}
       >
-        {children}
+        <ApolloWrapper><CookiesProvider>{children}</CookiesProvider></ApolloWrapper>
       </body>
     </html>
   );
