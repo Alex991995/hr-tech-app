@@ -46,8 +46,8 @@ function TimeOffPage() {
     <div className="flex flex-col lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4">
       <aside className="lg:w-1/4 p-4 border-r">
         <Card className="p-4">
-          <Avatar>
-            <AvatarImage src={data?.myProfile.avatar} />
+          <Avatar className='w-[150px] h-[150px]'>
+            <AvatarImage   src={data?.myProfile.avatar} />
             <AvatarFallback>myProfile</AvatarFallback>
           </Avatar>
           <div className="mt-4">

@@ -17,4 +17,14 @@ export interface LoginType {
   };
 }
 
+export interface ErrorValidationTypes {
+  email?: string,
+  password?: string,
+}
+
+export interface ShowErrorFieldProps {
+  error: string | undefined;
+}
+
+
 
