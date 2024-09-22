@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { USER_QUERY } from '../constants/query';
 import { UserType } from '../interface';
 import { useApolloClient } from '@apollo/client';
+import { Button } from '@/components/ui/button';
 
 function TimeOffPage() {
   const arrayTabs = ['Personal', 'Job', 'Time Off', 'Emergency', 'Documents'];
@@ -28,7 +29,7 @@ function TimeOffPage() {
     },
   });
 
-  async function f() {
+  async function logOut() {
     cookies.remove('jwtToken');
     await client.clearStore();
     router.push('/');
@@ -44,7 +45,6 @@ function TimeOffPage() {
   return (
     <div className="flex flex-col lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4">
       <aside className="lg:w-1/4 p-4 border-r">
-        <button onClick={f}>button</button>
         <Card className="p-4">
           <Avatar>
             <AvatarImage src={data?.myProfile.avatar} />
@@ -70,13 +70,16 @@ function TimeOffPage() {
 
       <div className="lg:w-3/4 p-4">
         <Tabs defaultValue="Time Off">
-          <TabsList>
-            {arrayTabs.map(item => (
-              <TabsTrigger key={item} value={item}>
-                {item}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <div className="flex justify-between">
+            <TabsList>
+              {arrayTabs.map(item => (
+                <TabsTrigger key={item} value={item}>
+                  {item}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <Button onClick={logOut}>Log Out</Button>
+          </div>
           <TabsContent value="Time Off">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
               <Card className="p-4">

@@ -33,10 +33,6 @@ export default function Home() {
       });
     }
   }
-
-      // email: 'john@mail.com',
-      // password: 'changeme',
-
   return (
     <section className="flex flex-col items-center h-full justify-center gap-4">
       <h2 className="text-3xl">Login Page</h2>
