@@ -11,6 +11,7 @@ import { USER_QUERY } from '../constants/query';
 import { UserType } from '../interface';
 import { useApolloClient } from '@apollo/client';
 import { Button } from '@/components/ui/button';
+import Loader from './loading';
 
 function TimeOffPage() {
   const arrayTabs = ['Personal', 'Job', 'Time Off', 'Emergency', 'Documents'];
@@ -40,14 +41,14 @@ function TimeOffPage() {
       router.push('/');
     }
   }, [data, router, loading]);
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
 
   return (
     <div className="flex flex-col lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4">
       <aside className="lg:w-1/4 p-4 border-r">
         <Card className="p-4">
-          <Avatar className='w-[150px] h-[150px]'>
-            <AvatarImage   src={data?.myProfile.avatar} />
+          <Avatar className="w-[150px] h-[150px]">
+            <AvatarImage src={data?.myProfile.avatar} />
             <AvatarFallback>myProfile</AvatarFallback>
           </Avatar>
           <div className="mt-4">

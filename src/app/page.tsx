@@ -28,7 +28,6 @@ export default function Home() {
       cookies.set('jwtToken', data.login.access_token);
       router.push('/timeOffPage');
     }
-    console.log(error);
     if (error) throw new Error(error.message);
   }, [data, error, cookies, router]);
 

@@ -1,12 +1,12 @@
 export interface UserType {
-  myProfile: MyProfile
+  myProfile: MyProfile;
 }
 
 export interface MyProfile {
-  __typename: string
-  id: string
-  name: string
-  avatar: string
+  __typename: string;
+  id: string;
+  name: string;
+  avatar: string;
 }
 
 export interface LoginType {
@@ -18,13 +18,10 @@ export interface LoginType {
 }
 
 export interface ErrorValidationTypes {
-  email?: string,
-  password?: string,
+  email?: string;
+  password?: string;
 }
 
 export interface ShowErrorFieldProps {
   error: string | undefined;
 }
-
-
-
